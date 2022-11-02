@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "oOK23mA4kLPI8URocf85xzJkF0zzk1uufNoF2Tg6IEjgSuHUCIwfP9JZ7wSmYquobovY83S4KUOY8gsrhfeR1g==",
+  "success": true,
+  "projectFilePath": "F:\\dev\\formation\\HackathonFormulaire\\SmsProject\\SmsProject.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Shasta\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "C:\\Users\\Shasta\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\Shasta\\.nuget\\packages\\swashbuckle.aspnetcore\\6.2.3\\swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
+    "C:\\Users\\Shasta\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.2.3\\swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
+    "C:\\Users\\Shasta\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.2.3\\swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
+    "C:\\Users\\Shasta\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.2.3\\swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512"
+  ],
+  "logs": []
+}

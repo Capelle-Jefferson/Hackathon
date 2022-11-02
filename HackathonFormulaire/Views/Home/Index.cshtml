@@ -1,0 +1,95 @@
+﻿@{
+    ViewData["Title"] = "Hackathon !";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Bienvenue !</h1>
+    Afin de vous inscrire sur notre super site, cliquer <a asp-controller="Home" asp-action="Form" class="indexA">ICI</a>
+
+    Veuillez à bien activer le son de votre ordinateur afin de vivre pleinement cette expérience epoustouflante.
+
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <p class="petit">ps: En cliquant sur ce lien vous nous autorisez à récupérer et vendre vos données personnelles.</p>
+
+    Solution: <input id="btn" type="button" value="+" onclick="displayHelp()" />
+    <div id="help" style="border: solid black 2px;">
+        <br />
+        <div style="display:inline-block; border: solid black 1px; width: 70%; padding: 5px;">
+            Code de confidentialité email: <input id="CodeEmailbtn" type="button" value="+" onclick="displayHelpCode()" />
+            <div id="helpCodeEmail" style="display: inline-block;">
+                Le code est : 20032017
+            </div>
+        </div>
+        <br /><br />
+
+        <div style="display:inline-block; border: solid black 1px; width: 70%; padding: 5px;">
+            Numéro de téléphone: <input id="Telbtn" type="button" value="+" onclick="displayTel()" />
+            <div id="helpTel" style="display: inline-block;">
+                Vous devez écrire chaque chiffre de votre numéro de téléphone en binaire:<br />
+                0001 = 1<br />
+                0010 = 2<br />
+                0011 = 3<br />
+                0100 = 4<br />
+                0101 = 5<br />
+                0110 = 6<br />
+                0111 = 7<br />
+                1000 = 8<br />
+                1001 = 9<br /> 
+                nnnn > 9 = 9 
+            </div>
+        </div>
+        @*Suite*@
+
+    </div>
+</div>
+
+<script>
+    let btn = document.getElementById("btn");
+    let b = document.getElementById("help");
+    let Codebtn = document.getElementById("CodeEmailbtn");
+    let Codeb = document.getElementById("helpCodeEmail");
+    let telbtn = document.getElementById("Telbtn");
+    let tel = document.getElementById("helpTel");
+    b.style.display = "none";
+    Codeb.style.display = "none";
+    tel.style.display = "none";
+
+    function displayHelp() {
+        if (b.style.display == "none") {
+            b.style.display = "block";
+            btn.value = "-";
+        } else {
+            b.style.display = "none";
+            btn.value = "+";
+        }
+    }
+
+    function displayHelpCode() {
+
+        if (Codeb.style.display == "none") {
+            Codeb.style.display = "block";
+            Codebtn.value = "-";
+        } else {
+            Codeb.style.display = "none";
+            Codebtn.value = "+";
+        }
+    }
+
+    function displayTel() {
+
+        if (tel.style.display == "none") {
+            tel.style.display = "block";
+            telbtn.value = "-";
+        } else {
+            tel.style.display = "none";
+            telbtn.value = "+";
+        }
+    }
+</script>

@@ -1,0 +1,289 @@
+﻿@model HackathonFormulaire.Models.FormViewModel;
+@{
+    ViewData["Title"] = "Etape 15 / 151";
+}
+
+<div class="text-center">
+    <h2 class="display-4">Etape 15 / 151 : </h2>
+
+    <form asp-controller="Home"
+          asp-action="ValidateForm"
+          method="post"
+          id="form">
+
+        @*Nom*@
+
+        <div class="mb-1">
+            <label asp-for="Name">Nom: </label>
+            <input id="nameId" asp-for="Name" type="text" class="form-control" oninput="UpdateName()" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+
+
+        @*Adresse mail*@
+        <div>
+            @*<div style="text-align:center;">
+                    <label>Adresse email: ( Nous avons oublié d'enregistrer votre adresse mail :'( )</label>
+                </div>
+
+                <input style="width: 49px; margin-left:150px;" asp-for="Email1" type="string" />
+                <span asp-validation-for="Email1" class="text-danger"></span> <br />
+
+                <select style="width: 78px;" asp-for="Separator1">
+                    <option value=".">.</option>
+                    <option value="-">-</option>
+                    <option value="_">_</option>
+                    <option value="=">=</option>
+                    <option value="+">+</option>
+                    <option value="-">-</option>
+                    <option value="*">*</option>
+                    <option value="/">/</option>
+                    <option value="~">~</option>
+                    <option value="|">|</option>
+                    <option value=":">:</option>
+                    <option value=";">;</option>
+                    <option value=",">,</option>
+                    <option value="!">!</option>
+                    <option value="\">\</option>
+                    <option value=" "> </option>
+                    <option value=""></option>
+                </select><br />
+
+                <input style="width: 109px; margin-left:354px;" asp-for="Email2" type="string" /><br />
+
+                <select style="width: 29px; margin-left:234px;" asp-for="Symbol">
+                    <option value=".">.</option>
+                    <option value="-">-</option>
+                    <option value="_">_</option>
+                    <option value="=">=</option>
+                    <option value="+">+</option>
+                    <option value="-">-</option>
+                    <option value="*">*</option>
+                    <option value="/">/</option>
+                    <option value="~">~</option>
+                    <option value="|">|</option>
+                    <option value=":">:</option>
+                    <option value=";">;</option>
+                    <option value="@@">@@</option>
+                    <option value="!">!</option>
+                    <option value="\">\</option>
+                    <option value=" "> </option>
+                    <option value=""></option>
+                </select>
+                <span asp-validation-for="Symbol" class="text-danger"></span> <br />
+
+                <input style="width: 52px; margin-left:157px;" asp-for="Email3" type="string" />
+                <span asp-validation-for="Email3" class="text-danger"></span> <br />
+
+                <select style="width: 64px; margin-left:512px;" asp-for="Separator2">
+                    <option value="*">*</option>
+                    <option value="-">-</option>
+                    <option value="_">_</option>
+                    <option value="=">=</option>
+                    <option value="+">+</option>
+                    <option value="-">-</option>
+                    <option value=".">.</option>
+                    <option value="/">/</option>
+                    <option value="~">~</option>
+                    <option value="|">|</option>
+                    <option value=":">:</option>
+                    <option value=";">;</option>
+                    <option value="@@">@@</option>
+                    <option value="!">!</option>
+                    <option value="\">\</option>
+                    <option value=" "> </option>
+                    <option value=""></option>
+                </select>
+                <span asp-validation-for="Separator2" class="text-danger"></span> <br />
+
+                <input style="width: 90px; margin-left:0px;" asp-for="Email4" type="string" value="com" />
+                <span asp-validation-for="Email4" class="text-danger"></span>
+            <br /><br />*@
+        </div>
+
+        @*Tel*@
+        <div>
+            @*<div class="DivNbTel">
+
+                <div class="DivNbTel">
+                        <label>Numéro de téléphone - b2  :</label><br />
+                        <label>Numéro de téléphone - b10 :</label>
+                    </div>
+                    <div class="DivNbTel">
+                        <input class="telTaille" style="width:45px;" id="telI1" type="number" maxlength="4" onchange="binary(1)" /><br />
+                        <input class="telTaille" style="width:20px;" asp-for="Tel1" id="telO1" type="number" maxlength="1" readonly />
+                    </div>
+                    <div class="DivNbTel">
+                        <input class="telTaille" style="width:15px;" id="telI2" type="number" maxlength="4" onchange="binary(2)" /><br />
+                        <input class="telTaille" style="width:42px;" asp-for="Tel2" id="telO2" type="number" maxlength="1" readonly />
+                    </div>
+                    <div class="DivNbTel">
+                        <input class="telTaille" style="width:30px;" id="telI3" type="number" maxlength="4" onchange="binary(3)" /><br />
+                        <input class="telTaille" style="width:15px;" asp-for="Tel3" id="telO3" type="number" maxlength="1" readonly />
+                    </div>
+                    <div class="DivNbTel">
+                        <input class="telTaille" style="width:16px;" id="telI4" type="number" maxlength="4" onchange="binary(4)" /><br />
+                        <input class="telTaille" style="width:32px;" asp-for="Tel4" id="telO4" type="number" maxlength="1" readonly />
+                    </div>
+                    <div class="DivNbTel">
+                        <input class="telTaille" style="width:58px;" id="telI5" type="number" maxlength="4" onchange="binary(5)" /><br />
+                        <input class="telTaille" style="width:16px;" asp-for="Tel5" id="telO5" type="number" maxlength="1" readonly />
+                    </div>
+                    <div class="DivNbTel">
+                        <input class="telTaille" style="width:26px;" id="telI6" type="number" maxlength="4" onchange="binary(6)" /><br />
+                        <input class="telTaille" style="width:18px;" asp-for="Tel6" id="telO6" type="number" maxlength="1" readonly />
+                    </div>
+                    <div class="DivNbTel">
+                        <input class="telTaille" style="width:18px;" id="telI7" type="number" maxlength="4" onchange="binary(7)" /><br />
+                        <input class="telTaille" style="width:26px;" asp-for="Tel7" id="telO7" type="number" maxlength="1" readonly />
+                    </div>
+                    <div class="DivNbTel">
+                        <input class="telTaille" style="width:21px;" id="telI8" type="number" maxlength="4" onchange="binary(8)" /><br />
+                        <input class="telTaille" style="width:53px;" asp-for="Tel8" id="telO8" type="number" maxlength="1" readonly />
+                    </div>
+                    <div class="DivNbTel">
+                        <input class="telTaille" style="width:32px;" id="telI9" type="number" maxlength="4" onchange="binary(9)" /><br />
+                        <input class="telTaille" style="width:12px;" asp-for="Tel9" id="telO9" type="number" maxlength="1" readonly />
+                    </div>
+                    <div class="DivNbTel">
+                        <input class="telTaille" style="width:69px;" id="telI10" type="number" maxlength="4" onchange="binary(10)" /><br />
+                        <input class="telTaille" style="width:51px;" asp-for="Tel10" id="telO10" type="number" maxlength="1" readonly />
+                    </div>
+
+            </div>
+
+            @if (ViewBag.TelError)
+            {
+                <span asp-validation-for="Tel1" class="text-danger"></span>
+                <br />
+                <span asp-validation-for="Tel2" class="text-danger"></span>
+                <br />
+                <span asp-validation-for="Tel3" class="text-danger"></span>
+                <br />
+                <span asp-validation-for="Tel4" class="text-danger"></span>
+                <br />
+                <span asp-validation-for="Tel5" class="text-danger"></span>
+                <br />
+                <span asp-validation-for="Tel6" class="text-danger"></span>
+                <br />
+                <span asp-validation-for="Tel7" class="text-danger"></span>
+                <br />
+                <span asp-validation-for="Tel8" class="text-danger"></span>
+                <br />
+                <span asp-validation-for="Tel9" class="text-danger"></span>
+                <br />
+                <span asp-validation-for="Tel10" class="text-danger"></span>
+                <br />
+            }*@
+        </div>
+
+        @*Mot de passe*@
+        <div>
+            @*<div class="mb-3">
+                <div id="Password" class="mb-3">
+                    <label>Mot de passe:</label>
+                    <input class="inputP" id="1" type="text" maxlength="1" onchange="updateValue(1)" asp-for="FirstPassword" />
+                    <input class="inputP" id="2" type="text" maxlength="1" onchange="updateValue(2)" />
+                    <input class="inputP" id="3" type="text" maxlength="1" onchange="updateValue(3)" />
+                    <input class="inputP" id="4" type="text" maxlength="1" onchange="updateValue(4)" />
+                    <input class="inputP" id="5" type="text" maxlength="1" onchange="updateValue(5)" />
+                    <input class="inputP" id="6" type="text" maxlength="1" onchange="updateValue(6)" />
+                </div>
+                <input type="button" onclick="AddPasswordInput()" value="-">
+                <input type="button" onclick="  RemovePasswordInput()" value="+">
+                <span asp-validation-for="FirstPassword" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Password">Confirmation du mot de passe: </label>
+                <input asp-for="Password" type="text" placeholder="*********" class="form-control" onchange="updateConfPassword1()" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3" id="conf2">
+                <label asp-for="ConfirmPassword">Confirmation du mot de passe: </label>
+                <input asp-for="ConfirmPassword" type="password" placeholder="Confirmation du mot de passe" class="form-control" onchange="updateConfPassword2()" />
+                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3" id="conf3">
+                <label asp-for="ConfirmPassword2">Confirmation du mot de passe: </label>
+                <input asp-for="ConfirmPassword2" type="password" placeholder="Confirmation du mot de passe encore" class="form-control" onchange="updateConfPassword3()" />
+                <span asp-validation-for="ConfirmPassword2" class="text-danger"></span>
+            </div>*@
+        </div>
+
+
+        <input type="submit" value="Valider" />
+
+    </form>
+</div>
+
+
+@*Audio*@
+<div>
+    <audio id="A" src='~/files/A.mp3'></audio>
+    <audio id="B" src='~/files/B.mp3'></audio>
+    <audio id="C" src='~/files/C.mp3'></audio>
+    <audio id="D" src='~/files/D.mp3'></audio>
+    <audio id="E" src='~/files/E.mp3'></audio>
+    <audio id="F" src='~/files/F.mp3'></audio>
+    <audio id="G" src='~/files/G.mp3'></audio>
+    <audio id="H" src='~/files/H.mp3'></audio>
+    <audio id="I" src='~/files/I.mp3'></audio>
+    <audio id="J" src='~/files/J.mp3'></audio>
+    <audio id="K" src='~/files/K.mp3'></audio>
+    <audio id="L" src='~/files/L.mp3'></audio>
+    <audio id="M" src='~/files/M.mp3'></audio>
+    <audio id="N" src='~/files/N.mp3'></audio>
+    <audio id="O" src='~/files/O.mp3'></audio>
+    <audio id="P" src='~/files/P.mp3'></audio>
+    <audio id="Q" src='~/files/Q.mp3'></audio>
+    <audio id="R" src='~/files/R.mp3'></audio>
+    <audio id="S" src='~/files/S.mp3'></audio>
+    <audio id="T" src='~/files/T.mp3'></audio>
+    <audio id="U" src='~/files/U.mp3'></audio>
+    <audio id="V" src='~/files/V.mp3'></audio>
+    <audio id="W" src='~/files/W.mp3'></audio>
+    <audio id="X" src='~/files/X.mp3'></audio>
+    <audio id="Y" src='~/files/Y.mp3'></audio>
+    <audio id="Z" src='~/files/Z.mp3'></audio>
+
+    <audio id="zero" src='~/files/zero.mp3'></audio>
+    <audio id="un" src='~/files/un.mp3'></audio>
+    <audio id="deux" src='~/files/deux.mp3'></audio>
+    <audio id="trois" src='~/files/trois.mp3'></audio>
+    <audio id="quatre" src='~/files/quatre.mp3'></audio>
+    <audio id="cinq" src='~/files/cinq.mp3'></audio>
+    <audio id="six" src='~/files/six.mp3'></audio>
+    <audio id="sept" src='~/files/sept.mp3'></audio>
+    <audio id="huit" src='~/files/huit.mp3'></audio>
+    <audio id="neuf" src='~/files/9.mp3'></audio>
+
+    <audio id="!" src='~/files/!.mp3'></audio>
+    <audio id="diese" src='~/files/diese.mp3'></audio>
+    <audio id="&" src='~/files/&.mp3'></audio>
+    <audio id="point" src='~/files/point.mp3'></audio>
+    <audio id="-" src='~/files/-.mp3'></audio>
+    <audio id="_" src='~/files/_.mp3'></audio>
+    <audio id="~" src='~/files/~.mp3'></audio>
+    <audio id="?" src='~/files/help.mp3'></audio>
+    <audio id="licorne" src='~/files/Licorne.mp3'></audio>
+    <audio id="etoile" src='~/files/Etoiles.mp3'></audio>
+</div>
+
+
+<script>
+    var listName = ["Bonnet", "Dupont", "Dupond", "Fontaine", "Dubois", "Durand"]
+    var name = listName[getRandomInt(listName.length)];
+    var nameBlock = document.getElementById("nameId");
+    var n = 1;
+    function UpdateName() {
+        nameBlock.value = name.substring(0, n);
+        n++;
+    }
+
+    function getRandomInt(max) {
+        return Math.floor(Math.random() * max);
+    }
+</script>

@@ -1,0 +1,24 @@
+﻿@model HackathonFormulaire.Models.CodeEmailFormViewModel;
+@{
+    ViewData["Title"] = "Etape 7 / 151";
+}
+
+<div class="text-center">
+    <h2 class="display-4">Etape 7 / 151 : Confirmation de votre adresse mail</h2>
+
+    <p>Un mail vient de vous être envoyé, vous y trouverez votre code de confidentialité.</p>
+
+    <form asp-controller="Home"
+          asp-action="CodeEmailValidate"
+          method="post">
+
+        <div class="mb-3">
+            <label asp-for="Code">Code de confidentialité :</label>
+            <input asp-for="Code" type="number" onselectstart="return false" onpaste="return false;" onCopy="return false" onCut="return false" onDrag="return false" onDrop="return false" /><br />
+            <span asp-validation-for="Code" class="text-danger"></span>
+        </div>
+
+        <input type="submit" value="Confirmer"/>
+
+    </form>
+</div>

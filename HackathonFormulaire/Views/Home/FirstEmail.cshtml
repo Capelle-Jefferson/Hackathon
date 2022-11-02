@@ -1,0 +1,35 @@
+﻿@model HackathonFormulaire.Models.EmailFormViewModel;
+@{
+    ViewData["Title"] = "Etape 1 / 151";
+}
+
+<div class="text-center">
+    <h2 class="display-4">Etape 1 / 151 : Adresse Email</h2>
+
+    <form asp-controller="Home"
+          asp-action="FirstEmailValidate"
+          method="post"
+          id="form">
+
+        <div class="mb-3">
+            <label asp-for="Email">Adresse email :</label>
+            <input asp-for="Email" type="email" onselectstart="return false" onpaste="return false;" onCopy="return false" onCut="return false" onDrag="return false" onDrop="return false"/>
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="ConfEmail">Confirmation de l'adresse email :</label>
+            <input asp-for="ConfEmail" type="email" onselectstart="return false" onpaste="return false;" onCopy="return false" onCut="return false" onDrag="return false" onDrop="return false"/>
+            <span asp-validation-for="ConfEmail" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="ConfEmail2">Confirmation de l'adresse email :</label>
+            <input asp-for="ConfEmail2" type="email" onselectstart="return false" onpaste="return false;" onCopy="return false" onCut="return false" onDrag="return false" onDrop="return false"/>
+            <span asp-validation-for="ConfEmail2" class="text-danger"></span>
+        </div>
+
+        <input type="submit" value="S'inscrire" />
+    </form>
+</div>
+
