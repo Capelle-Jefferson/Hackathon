@@ -83,3 +83,42 @@ function updateConfPassword2() {
 }
 function updateConfPassword3() {
 }
+
+function addHour() {
+    var hour = document.getElementById("hour");
+    var minute = document.getElementById("minute");
+    if (minute.value < 59) {
+        minute.value++;
+    } else {
+        minute.value = 0;
+        if (hour.value < 23) {
+            hour.value++;
+        } else {
+            hour.value = 0;
+        }
+    }
+}
+
+function subHour() {
+    var hour = document.getElementById("hour");
+    var minute = document.getElementById("minute");
+    if (minute.value > 0) {
+        minute.value--;
+    } else {
+        minute.value = 59;
+        if (hour.value > 0) {
+            hour.value--;
+        } else {
+            hour.value = 23;
+        }
+    }
+}
+
+function binary(id) {
+    let i = document.getElementById("telI" + id);
+    let o = document.getElementById("telO" + id);
+    o.value = parseInt(i.value, 2);
+    if (o.value > 9) {
+        o.value = 9;
+    }
+}

@@ -61,6 +61,7 @@ namespace HackathonFormulaire.Controllers
         {
             if (ModelState.IsValid)
             {
+                ViewBag.TelError = false;
                 return View("Form");
             }
             return View("CodeEmail");
@@ -69,6 +70,7 @@ namespace HackathonFormulaire.Controllers
 
         public IActionResult Form()
         {
+            ViewBag.TelError = false;
             return View("Form");
         }
 
@@ -77,10 +79,107 @@ namespace HackathonFormulaire.Controllers
             if (ModelState.IsValid)
             {
                 ViewBag.TelError = false;
-                return View("Form");
+
+                // Verif date de naissance
+                //if (!IsBirthdayValid(form))
+                //{
+                //    return View("Form");
+                //}
+
+                // Page suivante
+                ViewBag.Form = form;
+                return View("NameConf", form);
             }
             ViewBag.TelError = true;
             return View("Form");
+        }
+
+
+        private bool IsBirthdayValid(FormViewModel form)
+        {
+            int month = IsMonthValid(form.Month);
+
+            // Mois incorrect
+            if (month == 0)
+            {
+                ViewBag.Errors = "Le mois est inconnu.";
+                return false;
+            }
+
+            // Création d'un datetime, si exception return false 
+            int day = form.Day1 * 10 + form.Day2;
+            int year = 2000 + form.Year.Value;
+            DateTime d;
+            try
+            {
+                d = new DateTime(year, month, day);
+            }
+            catch
+            {
+                ViewBag.Errors = "Le jour n'est pas valide.";
+                return false;
+            }
+
+            if((int)d.DayOfWeek != form.NameDay)
+            {
+                ViewBag.Errors = "Le nom du jour est incorrect !";
+                return false;
+            }
+
+            return true;
+        }
+
+        /// <summary>
+        /// Retourne 0 si erreur ou 1 pour janvier ...
+        /// </summary>
+        /// <param name="form">FormViewModel</param>
+        /// <returns>int</returns>
+        private int IsMonthValid(string month)
+        {
+            switch (month.ToLower())
+            {
+                case "janvier":
+                    return 1;
+                case "février":
+                    return 2;
+                case "fevrier":
+                    return 2;
+                case "mars":
+                    return 3;
+                case "avril":
+                    return 4;
+                case "mai":
+                    return 5;
+                case "juin":
+                    return 6;
+                case "juillet":
+                    return 7;
+                case "août":
+                    return 8;
+                case "aout":
+                    return 8;
+                case "septembre":
+                    return 9;
+                case "octobre":
+                    return 10;
+                case "novembre":
+                    return 11;
+                case "décembre":
+                    return 12;
+                case "decembre":
+                    return 12;
+
+                default:
+                    return 0;
+
+            }
+        }
+
+
+        public IActionResult ConfDate(FormViewModel form)
+        {
+            //ViewBag.Form = form;
+            return View("DateConf");
         }
     }
 }

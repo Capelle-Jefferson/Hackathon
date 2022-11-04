@@ -14,141 +14,197 @@
         @*Nom*@
 
         <div class="mb-1">
-            <label asp-for="Name">Nom: </label>
+            <label asp-for="Name" style="font-size:18px; font-weight: bold;">Nom: </label>
             <input id="nameId" asp-for="Name" type="text" class="form-control" oninput="UpdateName()" />
             <span asp-validation-for="Name" class="text-danger"></span>
-        </div>
+        </div><br />
+
+        @*Date de naissance*@
+        <div>
+            <label style="font-size:18px; font-weight: bold;">Date de naissance :</label>
+            @*Heure avec bouton + - *@
+            <div style="margin-bottom:5px; text-align:left;">
+                <input type="button" value="+" style="width: 25px;" onclick="addHour()" />
+                <input type="button" value="-" style="width: 25px;" onclick="subHour()" />
+            </div>
+            <div style="margin-bottom:15px; text-align:left;">
+                <input id="hour" asp-for="Hour" readonly class="telTaille" style="width: 35px;" value="12" /> H
+                <input id="minute" asp-for="Minute" readonly class="telTaille" style="width: 35px;" value="0" />
+
+                <select asp-for="NameDay">
+                    <option value="7">Dimanche</option>
+                    <option value="2">Mardi</option>
+                    <option value="4">Jeudi</option>
+                    <option value="1">Lundi</option>
+                    <option value="6">Samedi</option>
+                    <option value="3">Mercredi</option>
+                    <option value="5">Vendredi</option>
+                </select>
+
+                <select asp-for="Day1">
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+
+                <select asp-for="Day2">
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                </select>
+
+                <input type="text" asp-for="Month" placeholder="Mois" />
+
+                <input type="number" readonly value="2000" style="width:60px;" /> +
+                <input asp-for="Year" type="number" class="telTaille" placeholder="Année" style="width:60px;" />
+
+            </div>
+            <div>
+                <span class="text-danger">@ViewBag.Errors</span>
+                <span asp-validation-for="Month" class="text-danger"></span>
+                <span asp-validation-for="Year" class="text-danger"></span>
+            </div>
+        </div><br />
 
 
         @*Adresse mail*@
         <div>
-            @*<div style="text-align:center;">
-                    <label>Adresse email: ( Nous avons oublié d'enregistrer votre adresse mail :'( )</label>
-                </div>
+            <div style="text-align:center;">
+                <label style="font-size:18px; font-weight: bold;">Adresse email:</label>
+                <label> ( Nous avons oublié d'enregistrer votre adresse mail :'( )</label>
+            </div>
 
-                <input style="width: 49px; margin-left:150px;" asp-for="Email1" type="string" />
-                <span asp-validation-for="Email1" class="text-danger"></span> <br />
+            <input style="width: 49px; margin-left:150px;" asp-for="Email1" type="string" />
+            <span asp-validation-for="Email1" class="text-danger"></span> <br />
 
-                <select style="width: 78px;" asp-for="Separator1">
-                    <option value=".">.</option>
-                    <option value="-">-</option>
-                    <option value="_">_</option>
-                    <option value="=">=</option>
-                    <option value="+">+</option>
-                    <option value="-">-</option>
-                    <option value="*">*</option>
-                    <option value="/">/</option>
-                    <option value="~">~</option>
-                    <option value="|">|</option>
-                    <option value=":">:</option>
-                    <option value=";">;</option>
-                    <option value=",">,</option>
-                    <option value="!">!</option>
-                    <option value="\">\</option>
-                    <option value=" "> </option>
-                    <option value=""></option>
-                </select><br />
+            <select style="width: 78px;" asp-for="Separator1">
+                <option value=".">.</option>
+                <option value="-">-</option>
+                <option value="_">_</option>
+                <option value="=">=</option>
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="*">*</option>
+                <option value="/">/</option>
+                <option value="~">~</option>
+                <option value="|">|</option>
+                <option value=":">:</option>
+                <option value=";">;</option>
+                <option value=",">,</option>
+                <option value="!">!</option>
+                <option value="\">\</option>
+                <option value=" "> </option>
+                <option value=""></option>
+            </select><br />
 
-                <input style="width: 109px; margin-left:354px;" asp-for="Email2" type="string" /><br />
+            <input style="width: 109px; margin-left:354px;" asp-for="Email2" type="string" /><br />
 
-                <select style="width: 29px; margin-left:234px;" asp-for="Symbol">
-                    <option value=".">.</option>
-                    <option value="-">-</option>
-                    <option value="_">_</option>
-                    <option value="=">=</option>
-                    <option value="+">+</option>
-                    <option value="-">-</option>
-                    <option value="*">*</option>
-                    <option value="/">/</option>
-                    <option value="~">~</option>
-                    <option value="|">|</option>
-                    <option value=":">:</option>
-                    <option value=";">;</option>
-                    <option value="@@">@@</option>
-                    <option value="!">!</option>
-                    <option value="\">\</option>
-                    <option value=" "> </option>
-                    <option value=""></option>
-                </select>
-                <span asp-validation-for="Symbol" class="text-danger"></span> <br />
+            <select style="width: 29px; margin-left:234px;" asp-for="Symbol">
+                <option value=".">.</option>
+                <option value="-">-</option>
+                <option value="_">_</option>
+                <option value="=">=</option>
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="*">*</option>
+                <option value="/">/</option>
+                <option value="~">~</option>
+                <option value="|">|</option>
+                <option value=":">:</option>
+                <option value=";">;</option>
+                <option value="@@">@@</option>
+                <option value="!">!</option>
+                <option value="\">\</option>
+                <option value=" "> </option>
+                <option value=""></option>
+            </select>
+            <span asp-validation-for="Symbol" class="text-danger"></span> <br />
 
-                <input style="width: 52px; margin-left:157px;" asp-for="Email3" type="string" />
-                <span asp-validation-for="Email3" class="text-danger"></span> <br />
+            <input style="width: 52px; margin-left:157px;" asp-for="Email3" type="string" />
+            <span asp-validation-for="Email3" class="text-danger"></span> <br />
 
-                <select style="width: 64px; margin-left:512px;" asp-for="Separator2">
-                    <option value="*">*</option>
-                    <option value="-">-</option>
-                    <option value="_">_</option>
-                    <option value="=">=</option>
-                    <option value="+">+</option>
-                    <option value="-">-</option>
-                    <option value=".">.</option>
-                    <option value="/">/</option>
-                    <option value="~">~</option>
-                    <option value="|">|</option>
-                    <option value=":">:</option>
-                    <option value=";">;</option>
-                    <option value="@@">@@</option>
-                    <option value="!">!</option>
-                    <option value="\">\</option>
-                    <option value=" "> </option>
-                    <option value=""></option>
-                </select>
-                <span asp-validation-for="Separator2" class="text-danger"></span> <br />
+            <select style="width: 64px; margin-left:512px;" asp-for="Separator2">
+                <option value="*">*</option>
+                <option value="-">-</option>
+                <option value="_">_</option>
+                <option value="=">=</option>
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value=".">.</option>
+                <option value="/">/</option>
+                <option value="~">~</option>
+                <option value="|">|</option>
+                <option value=":">:</option>
+                <option value=";">;</option>
+                <option value="@@">@@</option>
+                <option value="!">!</option>
+                <option value="\">\</option>
+                <option value=" "> </option>
+                <option value=""></option>
+            </select>
+            <span asp-validation-for="Separator2" class="text-danger"></span> <br />
 
-                <input style="width: 90px; margin-left:0px;" asp-for="Email4" type="string" value="com" />
-                <span asp-validation-for="Email4" class="text-danger"></span>
-            <br /><br />*@
-        </div>
+            <input style="width: 90px; margin-left:0px;" asp-for="Email4" type="string" value="com" />
+            <span asp-validation-for="Email4" class="text-danger"></span>
+            <br /><br />
+        </div><br />
 
         @*Tel*@
         <div>
-            @*<div class="DivNbTel">
+            <div class="DivNbTel">
 
                 <div class="DivNbTel">
-                        <label>Numéro de téléphone - b2  :</label><br />
-                        <label>Numéro de téléphone - b10 :</label>
-                    </div>
-                    <div class="DivNbTel">
-                        <input class="telTaille" style="width:45px;" id="telI1" type="number" maxlength="4" onchange="binary(1)" /><br />
-                        <input class="telTaille" style="width:20px;" asp-for="Tel1" id="telO1" type="number" maxlength="1" readonly />
-                    </div>
-                    <div class="DivNbTel">
-                        <input class="telTaille" style="width:15px;" id="telI2" type="number" maxlength="4" onchange="binary(2)" /><br />
-                        <input class="telTaille" style="width:42px;" asp-for="Tel2" id="telO2" type="number" maxlength="1" readonly />
-                    </div>
-                    <div class="DivNbTel">
-                        <input class="telTaille" style="width:30px;" id="telI3" type="number" maxlength="4" onchange="binary(3)" /><br />
-                        <input class="telTaille" style="width:15px;" asp-for="Tel3" id="telO3" type="number" maxlength="1" readonly />
-                    </div>
-                    <div class="DivNbTel">
-                        <input class="telTaille" style="width:16px;" id="telI4" type="number" maxlength="4" onchange="binary(4)" /><br />
-                        <input class="telTaille" style="width:32px;" asp-for="Tel4" id="telO4" type="number" maxlength="1" readonly />
-                    </div>
-                    <div class="DivNbTel">
-                        <input class="telTaille" style="width:58px;" id="telI5" type="number" maxlength="4" onchange="binary(5)" /><br />
-                        <input class="telTaille" style="width:16px;" asp-for="Tel5" id="telO5" type="number" maxlength="1" readonly />
-                    </div>
-                    <div class="DivNbTel">
-                        <input class="telTaille" style="width:26px;" id="telI6" type="number" maxlength="4" onchange="binary(6)" /><br />
-                        <input class="telTaille" style="width:18px;" asp-for="Tel6" id="telO6" type="number" maxlength="1" readonly />
-                    </div>
-                    <div class="DivNbTel">
-                        <input class="telTaille" style="width:18px;" id="telI7" type="number" maxlength="4" onchange="binary(7)" /><br />
-                        <input class="telTaille" style="width:26px;" asp-for="Tel7" id="telO7" type="number" maxlength="1" readonly />
-                    </div>
-                    <div class="DivNbTel">
-                        <input class="telTaille" style="width:21px;" id="telI8" type="number" maxlength="4" onchange="binary(8)" /><br />
-                        <input class="telTaille" style="width:53px;" asp-for="Tel8" id="telO8" type="number" maxlength="1" readonly />
-                    </div>
-                    <div class="DivNbTel">
-                        <input class="telTaille" style="width:32px;" id="telI9" type="number" maxlength="4" onchange="binary(9)" /><br />
-                        <input class="telTaille" style="width:12px;" asp-for="Tel9" id="telO9" type="number" maxlength="1" readonly />
-                    </div>
-                    <div class="DivNbTel">
-                        <input class="telTaille" style="width:69px;" id="telI10" type="number" maxlength="4" onchange="binary(10)" /><br />
-                        <input class="telTaille" style="width:51px;" asp-for="Tel10" id="telO10" type="number" maxlength="1" readonly />
-                    </div>
+                    <label style="font-size:18px; font-weight: bold;">Numéro de téléphone - b2  :</label><br />
+                    <label style="font-size:18px; font-weight: bold;">Numéro de téléphone - b10 :</label>
+                </div>
+                <div class="DivNbTel">
+                    <input class="telTaille" style="width:45px;" id="telI1" type="number" maxlength="4" onchange="binary(1)" /><br />
+                    <input class="telTaille" style="width:20px;" asp-for="Tel1" id="telO1" type="number" maxlength="1" readonly />
+                </div>
+                <div class="DivNbTel">
+                    <input class="telTaille" style="width:15px;" id="telI2" type="number" maxlength="4" onchange="binary(2)" /><br />
+                    <input class="telTaille" style="width:42px;" asp-for="Tel2" id="telO2" type="number" maxlength="1" readonly />
+                </div>
+                <div class="DivNbTel">
+                    <input class="telTaille" style="width:30px;" id="telI3" type="number" maxlength="4" onchange="binary(3)" /><br />
+                    <input class="telTaille" style="width:15px;" asp-for="Tel3" id="telO3" type="number" maxlength="1" readonly />
+                </div>
+                <div class="DivNbTel">
+                    <input class="telTaille" style="width:16px;" id="telI4" type="number" maxlength="4" onchange="binary(4)" /><br />
+                    <input class="telTaille" style="width:32px;" asp-for="Tel4" id="telO4" type="number" maxlength="1" readonly />
+                </div>
+                <div class="DivNbTel">
+                    <input class="telTaille" style="width:58px;" id="telI5" type="number" maxlength="4" onchange="binary(5)" /><br />
+                    <input class="telTaille" style="width:16px;" asp-for="Tel5" id="telO5" type="number" maxlength="1" readonly />
+                </div>
+                <div class="DivNbTel">
+                    <input class="telTaille" style="width:26px;" id="telI6" type="number" maxlength="4" onchange="binary(6)" /><br />
+                    <input class="telTaille" style="width:18px;" asp-for="Tel6" id="telO6" type="number" maxlength="1" readonly />
+                </div>
+                <div class="DivNbTel">
+                    <input class="telTaille" style="width:18px;" id="telI7" type="number" maxlength="4" onchange="binary(7)" /><br />
+                    <input class="telTaille" style="width:26px;" asp-for="Tel7" id="telO7" type="number" maxlength="1" readonly />
+                </div>
+                <div class="DivNbTel">
+                    <input class="telTaille" style="width:21px;" id="telI8" type="number" maxlength="4" onchange="binary(8)" /><br />
+                    <input class="telTaille" style="width:53px;" asp-for="Tel8" id="telO8" type="number" maxlength="1" readonly />
+                </div>
+                <div class="DivNbTel">
+                    <input class="telTaille" style="width:32px;" id="telI9" type="number" maxlength="4" onchange="binary(9)" /><br />
+                    <input class="telTaille" style="width:12px;" asp-for="Tel9" id="telO9" type="number" maxlength="1" readonly />
+                </div>
+                <div class="DivNbTel">
+                    <input class="telTaille" style="width:69px;" id="telI10" type="number" maxlength="4" onchange="binary(10)" /><br />
+                    <input class="telTaille" style="width:51px;" asp-for="Tel10" id="telO10" type="number" maxlength="1" readonly />
+                </div>
 
             </div>
 
@@ -174,14 +230,14 @@
                 <br />
                 <span asp-validation-for="Tel10" class="text-danger"></span>
                 <br />
-            }*@
-        </div>
+            }
+        </div><br />
 
         @*Mot de passe*@
         <div>
-            @*<div class="mb-3">
+            <div class="mb-3">
                 <div id="Password" class="mb-3">
-                    <label>Mot de passe:</label>
+                    <label style="font-size:18px; font-weight: bold;">Mot de passe:</label>
                     <input class="inputP" id="1" type="text" maxlength="1" onchange="updateValue(1)" asp-for="FirstPassword" />
                     <input class="inputP" id="2" type="text" maxlength="1" onchange="updateValue(2)" />
                     <input class="inputP" id="3" type="text" maxlength="1" onchange="updateValue(3)" />
@@ -210,7 +266,7 @@
                 <label asp-for="ConfirmPassword2">Confirmation du mot de passe: </label>
                 <input asp-for="ConfirmPassword2" type="password" placeholder="Confirmation du mot de passe encore" class="form-control" onchange="updateConfPassword3()" />
                 <span asp-validation-for="ConfirmPassword2" class="text-danger"></span>
-            </div>*@
+            </div>
         </div>
 
 
