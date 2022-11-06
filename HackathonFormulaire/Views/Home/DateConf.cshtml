@@ -1,0 +1,49 @@
+﻿@model HackathonFormulaire.Models.FormViewModel;
+@{
+    ViewData["Title"] = "Caninos";
+}
+
+<div class="text-center">
+    <h2 class="display-4">Etape 58 / 151 : Confirmation de votre date de naissance</h2>
+
+    <p>Votre date de naissance est : </p>
+    <p>Le @ViewBag.NameDay @ViewBag.Day @ViewBag.Form.Month @ViewBag.Year à @ViewBag.Form.Hour:@ViewBag.Form.Minute </p>
+
+    <form asp-controller="Home"
+          asp-action="EmailConf"
+          method="post"
+          id="form">
+
+        <input type="hidden" asp-for="Name" value="@ViewBag.Form.Name" />
+        <input type="hidden" asp-for="Minute" value="@ViewBag.Form.Minute" />
+        <input type="hidden" asp-for="Hour" value="@ViewBag.Form.Hour" />
+        <input type="hidden" asp-for="NameDay" value="@ViewBag.Form.NameDay" />
+        <input type="hidden" asp-for="Day1" value="@ViewBag.Form.Day1" />
+        <input type="hidden" asp-for="Day2" value="@ViewBag.Form.Day2" />
+        <input type="hidden" asp-for="Month" value="@ViewBag.Form.Month" />
+        <input type="hidden" asp-for="Year" value="@ViewBag.Form.Year" />
+        <input type="hidden" asp-for="Tel1" value="@ViewBag.Form.Tel1" />
+        <input type="hidden" asp-for="Tel2" value="@ViewBag.Form.Tel2" />
+        <input type="hidden" asp-for="Tel3" value="@ViewBag.Form.Tel3" />
+        <input type="hidden" asp-for="Tel4" value="@ViewBag.Form.Tel4" />
+        <input type="hidden" asp-for="Tel5" value="@ViewBag.Form.Tel5" />
+        <input type="hidden" asp-for="Tel6" value="@ViewBag.Form.Tel6" />
+        <input type="hidden" asp-for="Tel7" value="@ViewBag.Form.Tel7" />
+        <input type="hidden" asp-for="Tel8" value="@ViewBag.Form.Tel8" />
+        <input type="hidden" asp-for="Tel9" value="@ViewBag.Form.Tel9" />
+        <input type="hidden" asp-for="Tel10" value="@ViewBag.Form.Tel10" />
+        <input type="hidden" asp-for="Email1" value="@ViewBag.Form.Email1" />
+        <input type="hidden" asp-for="Separator1" value="@ViewBag.Form.Separator1" />
+        <input type="hidden" asp-for="Email2" value="@ViewBag.Form.Email2" />
+        <input type="hidden" asp-for="Symbol" value="@ViewBag.Form.Symbol" />
+        <input type="hidden" asp-for="Email3" value="@ViewBag.Form.Email3" />
+        <input type="hidden" asp-for="Separator2" value="@ViewBag.Form.Separator2" />
+        <input type="hidden" asp-for="Email4" value="@ViewBag.Form.Email4" />
+        <input type="hidden" asp-for="FirstPassword" value="@ViewBag.Form.FirstPassword" />
+        <input type="hidden" asp-for="Password" value="@ViewBag.Form.Password" />
+        <input type="hidden" asp-for="ConfirmPassword" value="@ViewBag.Form.ConfirmPassword" />
+        <input type="hidden" asp-for="ConfirmPassword2" value="@ViewBag.Form.ConfirmPassword2" />
+
+        <input type="submit" value="Suivant" />
+    </form>
+</div>

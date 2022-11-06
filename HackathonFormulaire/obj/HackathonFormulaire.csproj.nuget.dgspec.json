@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Jeff\\Dev\\Hackathon\\Hackathon\\HackathonFormulaire\\HackathonFormulaire.csproj": {}
+    "F:\\dev\\Hackathon\\HackathonFormulaire\\HackathonFormulaire.csproj": {}
   },
   "projects": {
-    "C:\\Jeff\\Dev\\Hackathon\\Hackathon\\HackathonFormulaire\\HackathonFormulaire.csproj": {
+    "F:\\dev\\Hackathon\\HackathonFormulaire\\HackathonFormulaire.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Jeff\\Dev\\Hackathon\\Hackathon\\HackathonFormulaire\\HackathonFormulaire.csproj",
+        "projectUniqueName": "F:\\dev\\Hackathon\\HackathonFormulaire\\HackathonFormulaire.csproj",
         "projectName": "HackathonFormulaire",
-        "projectPath": "C:\\Jeff\\Dev\\Hackathon\\Hackathon\\HackathonFormulaire\\HackathonFormulaire.csproj",
-        "packagesPath": "C:\\Users\\109417706\\.nuget\\packages\\",
-        "outputPath": "C:\\Jeff\\Dev\\Hackathon\\Hackathon\\HackathonFormulaire\\obj\\",
+        "projectPath": "F:\\dev\\Hackathon\\HackathonFormulaire\\HackathonFormulaire.csproj",
+        "packagesPath": "C:\\Users\\Shasta\\.nuget\\packages\\",
+        "outputPath": "F:\\dev\\Hackathon\\HackathonFormulaire\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\109417706\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Shasta\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -45,8 +45,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -58,7 +57,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.104\\RuntimeIdentifierGraph.json"
         }
       }
     }

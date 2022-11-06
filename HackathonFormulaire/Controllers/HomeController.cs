@@ -81,10 +81,10 @@ namespace HackathonFormulaire.Controllers
                 ViewBag.TelError = false;
 
                 // Verif date de naissance
-                //if (!IsBirthdayValid(form))
-                //{
-                //    return View("Form");
-                //}
+                if (!IsBirthdayValid(form))
+                {
+                    return View("Form");
+                }
 
                 // Page suivante
                 ViewBag.Form = form;
@@ -94,7 +94,7 @@ namespace HackathonFormulaire.Controllers
             return View("Form");
         }
 
-
+        #region VerifDate
         private bool IsBirthdayValid(FormViewModel form)
         {
             int month = IsMonthValid(form.Month);
@@ -174,12 +174,78 @@ namespace HackathonFormulaire.Controllers
 
             }
         }
+        #endregion VerifDate
 
 
         public IActionResult ConfDate(FormViewModel form)
         {
-            //ViewBag.Form = form;
+            ViewBag.Form = form;
+            ViewBag.Day = form.Day1 * 10 + form.Day2;
+            ViewBag.Year = 2000 + form.Year;
+            if (form.NameDay == 1)
+                ViewBag.NameDay = "Lundi";
+            else if (form.NameDay == 2)
+                ViewBag.NameDay = "Mardi";
+            else if (form.NameDay == 2)
+                ViewBag.NameDay = "Mercredi";
+            else if (form.NameDay == 2)
+                ViewBag.NameDay = "Jeudi";
+            else if (form.NameDay == 2)
+                ViewBag.NameDay = "Vendredi";
+            else if (form.NameDay == 2)
+                ViewBag.NameDay = "Samedi";
+            else if (form.NameDay == 2)
+                ViewBag.NameDay = "Dimanche";
             return View("DateConf");
+        }
+
+        public IActionResult EmailConf(FormViewModel form)
+        {
+            ViewBag.Form = form;
+            ViewBag.Email = string.Concat(form.Email1, form.Separator1, form.Email2, form.Symbol, form.Email3, form.Separator2, form.Email4);
+            return View("EmailConf");
+        }
+
+        public IActionResult TelConf(FormViewModel form)
+        {
+            ViewBag.Form = form;
+            ViewBag.Tel = string.Concat(form.Tel1, form.Tel2, " ", form.Tel3, form.Tel4, " ", form.Tel5, form.Tel6, " ", form.Tel7, form.Tel8, " ", form.Tel9, form.Tel10);
+            return View("TelConf");
+        }
+
+        public IActionResult PasswordConf(FormViewModel form)
+        {
+            ViewBag.Form = form;
+            return View("PasswordConf");
+        }
+
+        public IActionResult PageConf(FormViewModel form)
+        {
+            ViewBag.Form = form;
+            ViewBag.Email = string.Concat(form.Email1, form.Separator1, form.Email2, form.Symbol, form.Email3, form.Separator2, form.Email4);
+            ViewBag.Tel = string.Concat(form.Tel1, form.Tel2, " ", form.Tel3, form.Tel4, " ", form.Tel5, form.Tel6, " ", form.Tel7, form.Tel8, " ", form.Tel9, form.Tel10);
+            ViewBag.Day = form.Day1 * 10 + form.Day2;
+            ViewBag.Year = 2000 + form.Year;
+            if (form.NameDay == 1)
+                ViewBag.NameDay = "Lundi";
+            else if (form.NameDay == 2)
+                ViewBag.NameDay = "Mardi";
+            else if (form.NameDay == 2)
+                ViewBag.NameDay = "Mercredi";
+            else if (form.NameDay == 2)
+                ViewBag.NameDay = "Jeudi";
+            else if (form.NameDay == 2)
+                ViewBag.NameDay = "Vendredi";
+            else if (form.NameDay == 2)
+                ViewBag.NameDay = "Samedi";
+            else if (form.NameDay == 2)
+                ViewBag.NameDay = "Dimanche";
+            return View("PageConf");
+        }
+
+        public IActionResult Conf(FormViewModel form)
+        {
+            return View("Conf");
         }
     }
 }
